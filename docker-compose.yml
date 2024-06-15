@@ -1,0 +1,19 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: <PASSWORD>
+    volumes: 
+      - $PWD/postgres_home:/var/postgres_home
+    ports:
+      - "5432:5432"
+  pgadmin:
+    image: dpage/pgadmin4
+    enviroment:
+      PGADMIN_DEFAULT_EMAIL: <EMAIL>
+      PGADMIN_DEFAULT_PASSWORD: <PASSWORD>
+    ports:
+      - "3000:80"
+    depends_on:
+      - db
