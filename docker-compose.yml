@@ -5,7 +5,7 @@ services:
     environment:
       POSTGRES_PASSWORD: <PASSWORD>
     volumes: 
-      - $PWD/postgres_home:/var/postgres_home
+      - $PWD/postgres_home:/var/lib/postgresql/data
     ports:
       - "5432:5432"
   pgadmin:
